@@ -1,0 +1,5 @@
+<div class="products">
+    @for (item of products; track $index) {
+    <app-kala (onBuy)="buy($event)" [product]="item" />
+    }
+</div>

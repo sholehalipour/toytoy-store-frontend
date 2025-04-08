@@ -1,0 +1,9 @@
+<div class="backet">
+    @for (item of backetservice.backet; track $index) {
+    <app-kala (onRemove)="remove($event)" [action]="'remove'" [product]="item" />
+}@empty {
+    <div class="emptyBasket">
+        سبدخرید شما خالی است
+    </div>
+}    
+</div>

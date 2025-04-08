@@ -1,0 +1,47 @@
+:host {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 1vw;
+     }
+
+.product {
+    margin-top: 5vh;
+    padding: 0.5vw;
+    border: 2px solid rgb(212, 212, 212);
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+
+    .image {
+        img {
+            width: 24vw;
+            margin: 0.5em;
+            border-radius: 15px;
+        }
+    }
+
+    .title {
+        color: rgb(139, 139, 139);
+        text-align: center;
+        font-size: small;
+    }
+
+    .price {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+    }
+
+    .button {
+        background-color: rgb(255, 0, 76);
+        border-style: none;
+        color: white;
+        width: 10vw;
+        height: 6vh;
+        border-radius: 20px;
+
+    }
+
+    .button:hover {
+        background-color: rgb(243, 12, 108);
+    }
+}

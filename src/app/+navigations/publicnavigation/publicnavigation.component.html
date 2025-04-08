@@ -1,0 +1,114 @@
+<div class="uplogo">
+    <div>خرید آنلاین از فروشگاه های اسباب بازی توی توی</div>
+    <div>
+        <a href=""> مجله توی توی </a>
+        <a href="">فروشگاه های توی توی</a>
+    </div>
+</div>
+<div class="logo">
+    <div>
+        <img src="/images/logo.jpg" alt="">
+    </div>
+    <div class="call"> 5847-6000(21)</div>
+    <!-- <div><a href="">درخواست تماس</a></div>
+  <div><a href="">تماس با ما</a></div> -->
+    <div class="search">
+        <form class="formsearch">
+            <input id="searchtext" type="text" value="جستجوی محصولات">
+            <!-- <img id="picsearch" src="/images/search.png" alt=""> -->
+        </form>
+    </div>
+    <div class="icon">
+        <a href="#"><img id="picicon1" src="/images/like.png" alt=""></a>
+        <a href="#"><img id="picicon3" src="/images/profile.png" alt=""></a>
+        <a routerLink="backet"><img id="picicon2" src="/images/basket.jpg" alt=""></a>
+    </div>
+</div>
+<div class="menu">
+    <ul class="style">
+        <li>
+            <a routerLink="kala" class="stylemenu" (click)="kalaon()"> کالاها</a>
+            @if(openmenu=='kala')
+            {
+            <app-kalas />
+            }
+        </li>
+    </ul>
+    <ul class="style">
+        <li>
+            <a routerLink="boys" class="stylemenu" (click)="boyon()">پسرانه
+            </a>
+            @if(openmenu=='boys')
+            {
+            <app-boys />
+            }
+        </li>
+    </ul>
+    <a routerLink="girls" class="stylemenu" (click)="girlon()">
+        @if(openmenu=='girls')
+        {
+        <app-girls />
+        }
+        <ul class="style">
+            <li>دخترانه</li>
+        </ul>
+    </a>
+    <a routerLink="video" class="stylemenu" (click)="videoon()">
+        @if(openmenu=='video')
+        {
+        <app-video />
+        }
+        <ul class="style">
+            <li>ویدیوها</li>
+        </ul>
+    </a>
+    <a routerLink="brand" class="stylemenu" (click)="brandon()">
+        @if(openmenu=='brand')
+        {
+        <app-brand />
+        }
+        <ul class="style">
+            <li>برندها</li>
+        </ul>
+    </a>
+    <a routerLink="new" class="stylemenu" (click)="newon()">
+        @if(openmenu=='new')
+        {
+        <app-new />
+        }
+        <ul class="style">
+            <li>جدیدترین</li>
+        </ul>
+    </a>
+    <a routerLink="backet" class="stylemenu" (click)="backeton()">
+        @if(openmenu=='backet')
+        {
+        <app-backet />
+        }
+        <ul class="style">
+            <li>سبدخرید</li>
+        </ul>
+    </a>
+    <a routerLink="off" class="stylemenu" (click)="offon()">
+        @if(openmenu=='off')
+        {
+        <app-off />
+        }
+        <ul class="style">
+            <li>حراجی ها</li>
+        </ul>
+    </a>
+    <span class="divider"></span>
+    <a routerLink="/login" class="stylemenu" (click)="loginon()">
+        @if(openmenu=='login')
+        {
+        <app-login />
+        }
+        <ul class="stylelogin">
+            
+            <li>ورود</li>
+            
+        </ul>
+    </a>
+</div>
+

@@ -1,0 +1,20 @@
+
+<div class="product">
+    <div class="image">
+        <img src="/images/{{product.pic}}" alt="">
+    </div>
+    <div class="title">
+        {{product.title}}
+    </div><br>
+    <div class="price">
+        {{product.price}}
+        <button class="button" (click)="buy(product)">
+            @if(action=='buy'){
+            افرودن به سبد
+            }
+            @else {
+            حذف از سبد خرید
+            }
+        </button>
+    </div>
+</div>
