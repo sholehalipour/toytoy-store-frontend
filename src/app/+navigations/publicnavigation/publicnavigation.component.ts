@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { BacketbuyService } from '../../+services/backetbuy.service';
 import { KalasComponent } from "../../+pages/public-pages/kalas/ui/kalas.component";
 import { BoysComponent } from "../../+pages/public-pages/boys/ui/boys.component";
 import { GirlsComponent } from "../../+pages/public-pages/girls/ui/girls.component";
@@ -41,11 +40,9 @@ import { KalaComponent } from "../../+pages/public-pages/kala/ui/kala.component"
     BacketComponent,
     OffComponent,
     LoginComponent,
-   ]
+  ]
 })
 export class PublicnavigationComponent {
-
-
   openmenu: string = '';
   boyon() {
     this.openmenu = this.openmenu == '' ? 'boys' : '';
@@ -65,14 +62,14 @@ export class PublicnavigationComponent {
   newon() {
     this.openmenu = this.openmenu == '' ? 'new' : '';
   }
-  backeton() {
-    this.openmenu = this.openmenu == '' ? 'backet' : '';
+  basketon() {
+    this.openmenu = this.openmenu == '' ? 'basket' : '';
 
   }
   offon() {
     this.openmenu = this.openmenu == '' ? 'off' : '';
-    }
-    loginon() {
-      this.openmenu = this.openmenu == '' ? 'login' : '';
-      }
   }
+  loginon() {
+    this.openmenu = this.openmenu == '' ? 'login' : '';
+  }
+}

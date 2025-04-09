@@ -18,7 +18,7 @@ export const routes: Routes = [
 
     {
         path: 'public', component: PublicnavigationComponent, children: [
-            { path: 'kala',component:KalasComponent},
+            { path: 'kala', component: KalasComponent },
             { path: 'boys', component: BoysComponent },
             { path: 'girls', component: GirlsComponent },
             { path: 'video', component: VideoComponent },
@@ -34,7 +34,7 @@ export const routes: Routes = [
         path: 'admin', component: PrivatenavigationComponent, children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'kala', component: adminkala.KalaComponent },
-            { path: '', redirectTo: 'kala', pathMatch: 'prefix' },
+            { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
         ]
     },
 

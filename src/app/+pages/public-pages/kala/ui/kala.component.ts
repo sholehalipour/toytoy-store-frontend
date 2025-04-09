@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
-import { BacketbuyService } from '../../../../+services/backetbuy.service';
+import { BasketbuyService } from '../../../../+services/backetbuy.service';
 @Component({
   selector: 'app-kala',
   imports: [],
@@ -8,7 +8,7 @@ import { BacketbuyService } from '../../../../+services/backetbuy.service';
   styleUrl: './kala.component.scss'
 })
 export class KalaComponent {
-  backetservice=Inject(BacketbuyService);
+  basketservice = inject(BasketbuyService);
   @Input() product: any;
   @Output() onBuy = new EventEmitter<any>;
   @Output() onRemove = new EventEmitter<any>;
@@ -16,7 +16,7 @@ export class KalaComponent {
   buy(p: any) {
     if (this.action == 'buy') {
 
-      this.onBuy.emit(p);
+      this.onBuy.emit(this.product);
     }
     else {
       this.onRemove.emit(p);
