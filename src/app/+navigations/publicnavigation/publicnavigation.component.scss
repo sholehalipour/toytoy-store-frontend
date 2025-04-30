@@ -1,9 +1,8 @@
 .uplogo {
     display: flex;
     border: 1px solid rgb(190, 186, 186);
-    width: 100vw;
+    width: 99.7vw;
     height: 5vh;
-    font-family: toy;
     font-size: small;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +21,7 @@
 
 .logo {
     display: flex;
-    width: 100vw;
+    width: 99.5vw;
     height: 15vh;
 
     div {
@@ -40,22 +39,13 @@
 
     }
 
-    #searchtext {
-        background-color: rgb(230, 229, 229);
-        color: rgb(99, 98, 98);
-        width: 40vw;
-        height: 7vh;
-        border-radius: 30px;
-        border-style: none;
-
+    .searchform {
+        height: 8vh;
     }
 
-    #searchtext:hover {
-        background-color: rgb(255, 254, 254);
-        border-color: rgb(143, 141, 141);
+    .example-full-width {
         width: 40vw;
-        height: 7vh;
-        border-radius: 30px;
+
     }
 
     .icon {
@@ -63,30 +53,18 @@
 
     }
 
-    #picicon1 {
-        width: 3vw;
-        height: 6.5vh;
-        margin-left: 1vw;
+    .picicon {
+        width: 4vw;
+        height: 4vh;
+        color: black;
 
-    }
-
-    #picicon2 {
-        width: 3vw;
-        height: 6vh;
-    }
-
-    #picicon3 {
-        width: 2.5vw;
-        height: 5vh;
-        margin-bottom: 0.30vw;
-        margin-left: 1vw;
     }
 
 }
 
 .menu {
     display: flex;
-    width: 100vw;
+    width: 99.8vw;
     height: 8vh;
     border: 1px solid rgb(255, 0, 64);
     background-color: rgb(255, 0, 64);
@@ -133,7 +111,7 @@
         list-style: none;
         font-size: medium;
         font-weight: bold;
-        margin-left: 1vw;
+        margin-left: 2vw;
     }
 
     .divider {

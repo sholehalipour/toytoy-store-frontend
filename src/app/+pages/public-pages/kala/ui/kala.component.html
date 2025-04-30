@@ -1,4 +1,28 @@
-<div class="product">
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"><img src="/images/{{product.pic}}" alt=""></div> -->
+      <!-- <mat-card-title>{{product.title}}</mat-card-title> -->
+    </mat-card-header>
+    <img mat-card-image src="/images/{{product.pic}}" alt="">
+    <mat-card-content>
+        {{product.title}}
+    </mat-card-content>
+    <mat-card-subtitle>{{product.price}}</mat-card-subtitle>
+    <mat-card-actions>
+      <button mat-button (click)="buy(product)" >
+         @if(action=='buy' ){
+            افرودن به سبد
+            <mat-spinner diameter="15"></mat-spinner>
+            }
+            @else {
+            حذف از سبد خرید
+            }
+
+      </button>
+      <button mat-button>لایک</button>
+    </mat-card-actions>
+  </mat-card>
+<!-- <div class="product">
     <div class="image">
         <img src="/images/{{product.pic}}" alt="">
     </div>
@@ -7,13 +31,14 @@
     </div><br>
     <div class="price">
         {{product.price}}
-        <button class="button" (click)="buy(product)">
-            @if(action=='buy'){
+        <button class="button" (click)="buy(product) ">
+            @if(action=='buy' ){
             افرودن به سبد
+            <mat-spinner diameter="30"></mat-spinner>
             }
             @else {
             حذف از سبد خرید
             }
         </button>
     </div>
-</div>
+</div> -->

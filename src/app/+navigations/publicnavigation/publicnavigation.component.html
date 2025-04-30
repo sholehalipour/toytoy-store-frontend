@@ -2,7 +2,11 @@
     <div>خرید آنلاین از فروشگاه های اسباب بازی توی توی</div>
     <div>
         <a href=""> مجله توی توی </a>
-        <a href="">فروشگاه های توی توی</a>
+        <a routerLink="/kalas" (click)="storeon()">فروشگاه های توی توی</a>
+        @if(openmenu=='فروشگاه های توی توی')
+        {
+        <app-foroshgah />
+        }
     </div>
 </div>
 <div class="logo">
@@ -10,24 +14,34 @@
         <img src="/images/logo.jpg" alt="">
     </div>
     <div class="call"> 5847-6000(21)</div>
-    <!-- <div><a href="">درخواست تماس</a></div>
-  <div><a href="">تماس با ما</a></div> -->
     <div class="search">
-        <form class="formsearch">
-            <input id="searchtext" type="text" value="جستجوی محصولات">
-            <!-- <img id="picsearch" src="/images/search.png" alt=""> -->
+        <form class="searchform">
+            <mat-form-field class="example-full-width">
+                <mat-label>جستجوی محصولات</mat-label>
+                <input matInput placeholder="searchtext" value="">
+            </mat-form-field>
         </form>
     </div>
     <div class="icon">
-        <a href="#"><img id="picicon1" src="/images/like.png" alt=""></a>
-        <a href="#"><img id="picicon3" src="/images/profile.png" alt=""></a>
-        <a routerLink="backet"><img id="picicon2" src="/images/basket.jpg" alt=""></a>
+        <a routerLink="/admin"><mat-icon class="picicon" aria-hidden="false" fontIcon="person"></mat-icon></a>
+        <a routerLink="kalas" (click)="kalaon()"> <mat-icon class="picicon" aria-hidden="false"
+                fontIcon="home"></mat-icon></a>
+        @if(openmenu=='home')
+        {
+        <app-kala />
+        }
+        <a routerLink="basket" (click)="shoppingcart()"><mat-icon class="picicon"
+                matBadge="15">shopping_cart</mat-icon></a>
+        @if(openmenu=='shoppingcart')
+        {
+        <app-backet />
+        }
     </div>
 </div>
 <div class="menu">
     <ul class="style">
         <li>
-            <a routerLink="kala" class="stylemenu" (click)="kalaon()"> کالاها</a>
+            <a routerLink="kala" class="stylemenu" (click)="kalaon()">کالاها</a>
             @if(openmenu=='kala')
             {
             <app-kalas />

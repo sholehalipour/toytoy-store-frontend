@@ -19,6 +19,10 @@ import { BacketComponent } from "../../+pages/public-pages/backet/ui/backet.comp
 import { OffComponent } from "../../+pages/public-pages/off/ui/off.component";
 import { LoginComponent } from "../../+pages/public-pages/login/ui/login.component";
 import { KalaComponent } from "../../+pages/public-pages/kala/ui/kala.component";
+import { MatBadgeModule } from '@angular/material/badge';
+import { BasketbuyService } from '../../+services/backetbuy.service';
+import { MatInputModule } from '@angular/material/input';
+import { ForoshgahComponent } from "../../+pages/public-pages/foroshgah/foroshgah.component";
 
 @Component({
   selector: 'app-publicnavigation',
@@ -40,10 +44,22 @@ import { KalaComponent } from "../../+pages/public-pages/kala/ui/kala.component"
     BacketComponent,
     OffComponent,
     LoginComponent,
-  ]
+    MatBadgeModule,
+    MatIconModule,
+    MatInputModule,
+    ForoshgahComponent,
+    KalaComponent
+]
 })
 export class PublicnavigationComponent {
+  basketbuy = inject(BasketbuyService);
   openmenu: string = '';
+  storeon() {
+    this.openmenu = this.openmenu == '' ? 'فروشگاه های توی توی' : '';
+  }
+  shoppingcart() {
+  this.openmenu=this.openmenu==''?'shoppingcart':'';
+  }
   boyon() {
     this.openmenu = this.openmenu == '' ? 'boys' : '';
   }

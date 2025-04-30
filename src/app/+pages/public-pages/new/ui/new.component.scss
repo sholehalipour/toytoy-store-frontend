@@ -1,10 +1,14 @@
-.buywithyear {
-    position: absolute;
-    margin-top: 5vw;
-
-    .image {
+:host {
         display: inline-block;
+    position: absolute;
+    margin-top: 9vh;
+    margin-right: -15vw;
+    
+    .image {
+        
         width: 12vw;
         height: 40vh;
     }
 }
+
+

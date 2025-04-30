@@ -1,21 +1,33 @@
 import { Component, inject, Inject, Input } from '@angular/core';
 import { KalaComponent } from "../../kala/ui/kala.component";
 import { BasketbuyService } from '../../../../+services/backetbuy.service';
+import { BusyService } from '../../../../+services/busy.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-kalas',
-  imports: [KalaComponent],
+  imports: [KalaComponent,
+    MatProgressSpinnerModule,
+
+  ],
   templateUrl: './kalas.component.html',
   styleUrl: './kalas.component.scss'
 })
 export class KalasComponent {
+  busyalarm = inject(BusyService);
   basketservice = inject(BasketbuyService);
   remove($event: any) {
     this.basketservice.basket = this.basketservice.basket.filter((m: any) => m != $event);
   }
   buy($event: any) {
+    this.busyalarm.busy = false;
     if (this.basketservice.basket.every((p: { id: any; }) => p.id != $event.id)) {
       this.basketservice.basket.push($event);
+      this.busyalarm.busy = true;
+      setTimeout(() => {
+        this.busyalarm.busy = false;
+      }, 3000);
     }
   }
   products = [

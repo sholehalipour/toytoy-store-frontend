@@ -1,14 +1,42 @@
-<div class="login">
-    <div>
-        <input type="text" placeholder="نام کاربری">
-    </div>
-    <div>
-        <input type="password" placeholder="رمزعبور">
-    </div>
-    <div>
-        <button (click)="login()">ورود</button>
-    </div>
-    <div>
-        <a routerLink="/public">برگشت</a>
-    </div>
-</div>
+<mat-card [class.mobile]="isHandset$|async" appearance="outlined">
+    <mat-card-content>
+        <form (ngSubmit)="check()">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>نام کاربری</mat-label>
+                    <input name="username" [(ngModel)]="login.username" matInput placeholder="نام کاربری" />
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint>نام کاربری الزامی است</mat-hint>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>کلمه عبور</mat-label>
+                    <input name="password" type="password" [(ngModel)]="login.password" matInput
+                        placeholder="کلمه عبور" />
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <mat-hint>کلمه عبور الزامی است</mat-hint>
+                </mat-form-field>
+            </div>
+            <mat-checkbox name="keepme" [(ngModel)]="login.keepme">مرا به خاطر بسپار</mat-checkbox>
+            <div>
+                <button [disabled]="! isvalid()||busy" mat-flat-button>
+                    @if (busy) {
+
+                        <mat-spinner diameter="30"  ></mat-spinner>
+                    }
+                    @else {
+
+                        ورود
+                        
+                    }
+                </button>
+            </div>
+            <div class="back">
+                <a routerLink="">بازگشت</a>
+            </div>
+            <div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
