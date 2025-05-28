@@ -21,12 +21,13 @@
             <mat-checkbox name="keepme" [(ngModel)]="login.keepme">مرا به خاطر بسپار</mat-checkbox>
             <div>
                 <button [disabled]="! isvalid()||busy" mat-flat-button>
-                    @if (busy) {
-
+                    @if ( busy && massage=='admin' || massage=='user'|| massage=='guest') {
+                        
                         <mat-spinner diameter="30"  ></mat-spinner>
                     }
                     @else {
-
+                        
+                        {{massage}}
                         ورود
                         
                     }

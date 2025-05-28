@@ -2,7 +2,7 @@
     @for (item of basketservice.basket; track $index) {
     <app-kala (onRemove)="remove($event)" [action]="'remove'" [product]="item" />
     }@empty {
-    <div class="emptyBasket">
+    <div class="emptybasket">
         سبدخرید شما خالی است
     </div>
     }

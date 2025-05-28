@@ -10,9 +10,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
 import { Login } from './models/login';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BusyService } from '../../../../+services/busy.service';
+import { BusyService } from '../../../../+shared/+services/busy.service';
+import { AuthService } from '../../../../+shared/+services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -34,9 +35,19 @@ import { BusyService } from '../../../../+services/busy.service';
 })
 export class LoginComponent {
   // busy = inject(BusyService);
+  auth=inject(AuthService);
+  router=inject(Router);
   busy = false;
+  massage:string='';
   check() {
     this.busy = true;
+   if(this.auth.check(this.login.username,this.login.password)) {
+this.router.navigateByUrl('/admin');
+  }
+  else{
+    this.massage=' نام کاربری یا کلمه عبور اشتباه است';
+  }
+  this.busy=false;
     setTimeout(() => {
       console.log(this.login);
       this.busy = false;

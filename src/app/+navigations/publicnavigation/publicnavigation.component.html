@@ -1,74 +1,87 @@
 <div class="uplogo">
-    <div>خرید آنلاین از فروشگاه های اسباب بازی توی توی</div>
+    <div>خرید آنلاین از فروشگاه های اسباب بازی توی توی
+    </div>
     <div>
         <a href=""> مجله توی توی </a>
-        <a routerLink="/kalas" (click)="storeon()">فروشگاه های توی توی</a>
-        @if(openmenu=='فروشگاه های توی توی')
+        <a routerLink="/kalas" (click)="goto('فروشگاه های توی توی')">فروشگاه های توی توی</a>
+        @if(activepage=='فروشگاه های توی توی')
         {
         <app-foroshgah />
         }
     </div>
 </div>
-<div class="logo">
-    <div>
+<div class="header">
+    <div class="logo">
         <img src="/images/logo.jpg" alt="">
     </div>
-    <div class="call"> 5847-6000(21)</div>
+    <div class="call">5847-6000(21)
+    </div>
     <div class="search">
         <form class="searchform">
             <mat-form-field class="example-full-width">
                 <mat-label>جستجوی محصولات</mat-label>
-                <input matInput placeholder="searchtext" value="">
+                <input matInput placeholder="جستجوی محصولات" value="">
             </mat-form-field>
         </form>
     </div>
-    <div class="icon">
-        <a routerLink="/admin"><mat-icon class="picicon" aria-hidden="false" fontIcon="person"></mat-icon></a>
-        <a routerLink="kalas" (click)="kalaon()"> <mat-icon class="picicon" aria-hidden="false"
-                fontIcon="home"></mat-icon></a>
-        @if(openmenu=='home')
-        {
-        <app-kala />
-        }
-        <a routerLink="basket" (click)="shoppingcart()"><mat-icon class="picicon"
-                matBadge="15">shopping_cart</mat-icon></a>
-        @if(openmenu=='shoppingcart')
-        {
+<span class="divider1"></span>
+    <a routerLink="/admin">
+        <mat-icon class="picicon" aria-hidden="false" fontIcon="person">
+        </mat-icon>
+    </a>
+    <a routerLink="backet" (click)="goto('backet')">
+        <mat-icon class="picicon" matBadge="0">shopping_cart
+        </mat-icon>
+        <!-- @if (cartcount>0) 
+        {  {{cartcount}}  } -->
+    </a>
+    <!-- @if(activepage=='backet')
+    {
         <app-backet />
-        }
-    </div>
+    } -->
+    <a routerLink="home" (click)="goto('home')">
+        <mat-icon class="picicon" aria-hidden="false" fontIcon="home">
+        </mat-icon>
+        
+    </a>
+    @if(activepage=='home')
+    {
+        <app-slideshow/>
+    }
 </div>
 <div class="menu">
     <ul class="style">
         <li>
-            <a routerLink="kala" class="stylemenu" (click)="kalaon()">کالاها</a>
-            @if(openmenu=='kala')
+            <a routerLink="kala" class="stylemenu" (click)="goto('kala')">کالاها</a>
+            @if(activepage=='kala')
             {
             <app-kalas />
+
             }
+
         </li>
     </ul>
     <ul class="style">
         <li>
-            <a routerLink="boys" class="stylemenu" (click)="boyon()">پسرانه
+            <a routerLink="boys" class="stylemenu" (click)="goto('boys')">پسرانه
             </a>
-            @if(openmenu=='boys')
+            @if(activepage=='boys')
             {
             <app-boys />
             }
         </li>
     </ul>
-    <a routerLink="girls" class="stylemenu" (click)="girlon()">
-        @if(openmenu=='girls')
-        {
-        <app-girls />
-        }
+    <a routerLink="girls" class="stylemenu" (click)="goto('girls')">
         <ul class="style">
             <li>دخترانه</li>
         </ul>
+        @if(activepage=='girls')
+        {
+        <app-girls />
+        }
     </a>
-    <a routerLink="video" class="stylemenu" (click)="videoon()">
-        @if(openmenu=='video')
+    <a routerLink="video" class="stylemenu" (click)="goto('video')">
+        @if(activepage=='video')
         {
         <app-video />
         }
@@ -76,8 +89,8 @@
             <li>ویدیوها</li>
         </ul>
     </a>
-    <a routerLink="brand" class="stylemenu" (click)="brandon()">
-        @if(openmenu=='brand')
+    <a routerLink="brand" class="stylemenu" (click)="goto('brand')">
+        @if(activepage=='brand')
         {
         <app-brand />
         }
@@ -85,8 +98,8 @@
             <li>برندها</li>
         </ul>
     </a>
-    <a routerLink="new" class="stylemenu" (click)="newon()">
-        @if(openmenu=='new')
+    <a routerLink="new" class="stylemenu" (click)="goto('new')">
+        @if(activepage=='new')
         {
         <app-new />
         }
@@ -94,8 +107,8 @@
             <li>جدیدترین</li>
         </ul>
     </a>
-    <a routerLink="basket" class="stylemenu" (click)="basketon()">
-        @if(openmenu=='basket')
+    <a routerLink="basket" class="stylemenu" (click)="goto('backet')">
+        @if(activepage=='backet')
         {
         <app-backet />
         }
@@ -103,8 +116,8 @@
             <li>سبدخرید</li>
         </ul>
     </a>
-    <a routerLink="off" class="stylemenu" (click)="offon()">
-        @if(openmenu=='off')
+    <a routerLink="off" class="stylemenu" (click)="goto('off')">
+        @if(activepage=='off')
         {
         <app-off />
         }
@@ -113,8 +126,8 @@
         </ul>
     </a>
     <span class="divider"></span>
-    <a routerLink="/login" class="stylemenu" (click)="loginon()">
-        @if(openmenu=='login')
+    <a routerLink="/login" class="stylemenu" (click)="goto('login')">
+        @if(activepage=='login')
         {
         <app-login />
         }

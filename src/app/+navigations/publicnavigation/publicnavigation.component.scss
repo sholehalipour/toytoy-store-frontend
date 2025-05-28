@@ -1,7 +1,6 @@
 .uplogo {
     display: flex;
     border: 1px solid rgb(190, 186, 186);
-    width: 99.7vw;
     height: 5vh;
     font-size: small;
     justify-content: space-between;
@@ -19,52 +18,38 @@
     }
 }
 
-.logo {
+.header {
     display: flex;
-    width: 99.5vw;
+    align-items: center;
+    justify-content: right;
+    flex-wrap: wrap;
     height: 15vh;
 
-    div {
-        margin-right: 2em;
-    }
-
     .call {
+        font-size: 2em;
         color: black;
-        align-self: center;
-        justify-self: right;
-    }
-
-    .search {
-        align-self: center;
-
     }
 
     .searchform {
-        height: 8vh;
+        height: 10vh;
     }
 
     .example-full-width {
-        width: 40vw;
-
-    }
-
-    .icon {
-        align-self: center;
+        width: 30vw;
 
     }
 
     .picicon {
-        width: 4vw;
-        height: 4vh;
+        cursor: pointer;
+        width: 6vw;
+        height: 6vh;
         color: black;
 
     }
-
 }
 
 .menu {
     display: flex;
-    width: 99.8vw;
     height: 8vh;
     border: 1px solid rgb(255, 0, 64);
     background-color: rgb(255, 0, 64);
@@ -83,33 +68,15 @@
         color: rgb(177, 176, 176);
     }
 
-    .stylemenu1 {
-
-        position: absolute;
-        text-align: right;
-        text-decoration: none;
-        border-radius: 20px;
-        color: rgb(58, 58, 58);
-        list-style: none;
-        font-size: small;
-        width: 15vw;
-        height: 20vh;
-        margin-top: 2.25vh;
-        background-color: rgb(235, 234, 234);
-        transition: all 1s;
-        cursor: pointer;
-    }
-
     .style {
         list-style: none;
-        font-size: medium;
+        font-size: large;
         font-weight: bold;
-
     }
 
     .stylelogin {
         list-style: none;
-        font-size: medium;
+        font-size: large;
         font-weight: bold;
         margin-left: 2vw;
     }

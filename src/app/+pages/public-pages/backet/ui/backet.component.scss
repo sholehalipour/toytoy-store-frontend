@@ -1,16 +1,12 @@
-div {
+.basket {
   position: absolute;
   margin-top: 10vh;
-  margin-right: -28vw;
+}
 
-
-  .emptyBasket {
-    position: relative;
-    margin-right: 28vw;
-    margin-top: 20vh;
-    font-size: xx-large;
-    border-radius: 0.7em;
-    color: rgb(255, 0, 98);
-    background-color: rgb(255, 255, 255);
-  }
+.emptybasket {
+  margin-top: 20vh;
+  font-size: xx-large;
+  border-radius: 0.7em;
+  color: rgb(255, 0, 98);
+  background-color: rgb(255, 255, 255);
 }

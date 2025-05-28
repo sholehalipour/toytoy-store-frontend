@@ -1,14 +1,12 @@
-.example-card {
-    display: inline-block;
-    // margin-top: 5em;
+    .example-card {
+        display: inline-block;
+    margin-top: 5em;
     box-sizing: border-box;
     padding: 1em;
     margin: 2em;
     text-align: center;
-   
-
     mat-card-content {
-       
+        
         margin: 1em;
         color: rgb(99, 95, 95);
         text-align: center;
@@ -31,5 +29,5 @@
     button:hover {
         background-color: rgb(243, 12, 108);
     }
-
+    
 }

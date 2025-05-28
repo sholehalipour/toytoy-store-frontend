@@ -1,0 +1,22 @@
+<div class="slideshow-container">
+  @for (slide of Slides; track $index) {
+    @if (slideIndex===$index+1) {
+      <img class="image" src="/images/{{slide.imageurl}} " alt="slidimage" />
+      <div class="title">
+        {{slide.title}}
+      </div>
+      <div class="button">
+        <button mat-flat-button>مشاهده محصولات</button>
+      </div>
+    }
+  }
+  <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+  <a class="next" (click)="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+<div style="text-align:center">
+  @for (slide of Slides; track $index)
+  {
+    <span class="dot" (click)="currentSlide($index+1)"></span>
+  }
+</div>

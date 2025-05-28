@@ -11,4 +11,6 @@ import { BacketComponent } from "./+pages/public-pages/backet/ui/backet.componen
 })
 export class AppComponent {
   title = 'toytoy-store-frontend';
+  
+
 }

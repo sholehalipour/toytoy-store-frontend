@@ -1,0 +1,95 @@
+.slideshow-container {
+  display: flex;
+  margin-top: 5em;
+  background-color: #f7bbd7;
+
+  .title {
+    margin-top: 10vh;
+    font-size: xx-large;
+  }
+
+  .image {
+    width: 68em;
+    height: 25em;
+  }
+
+  .button {
+    position: absolute;
+    margin-top: 28vh;
+    margin-right: 75vw;
+    border-style: none;
+    color: white;
+    width: 15vw;
+    height: 5vh;
+    border-radius: 20px;
+  }
+
+  button:hover {
+    background-color: rgb(243, 12, 108);
+  }
+
+
+  .next {
+    cursor: pointer;
+    position: absolute;
+    margin-right: 97vw;
+    top: 60vh;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 0.6s ease;
+    border-radius: 0 0.5em 0.5em 0;
+    user-select: none;
+  }
+
+  .prev {
+    cursor: pointer;
+    position: absolute;
+    top: 60vh;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    transition: 0.6s ease;
+    border-radius: 0 0.5em 0.5em 0;
+    user-select: none;
+    border-radius: 0.5em 0 0 0.5em;
+  }
+
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.dot {
+  cursor: pointer;
+  height: 1vw;
+  width: 2vh;
+  margin: 0 0.25em;
+  background-color: #ccc4c4;
+  border-radius: 20em;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #5f5e5e;
+}
+
+.fade {
+  animation-name:fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .5
+  }
+
+  to {
+    opacity: 1
+  }
+}

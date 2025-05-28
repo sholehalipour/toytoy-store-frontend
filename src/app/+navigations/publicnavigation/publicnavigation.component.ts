@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,9 +20,10 @@ import { OffComponent } from "../../+pages/public-pages/off/ui/off.component";
 import { LoginComponent } from "../../+pages/public-pages/login/ui/login.component";
 import { KalaComponent } from "../../+pages/public-pages/kala/ui/kala.component";
 import { MatBadgeModule } from '@angular/material/badge';
-import { BasketbuyService } from '../../+services/backetbuy.service';
+import { BasketbuyService } from '../../+shared/+services/backetbuy.service';
 import { MatInputModule } from '@angular/material/input';
 import { ForoshgahComponent } from "../../+pages/public-pages/foroshgah/foroshgah.component";
+import { SlideshowComponent } from "../../+pages/public-pages/slideshow/slideshow.component";
 
 @Component({
   selector: 'app-publicnavigation',
@@ -48,44 +49,16 @@ import { ForoshgahComponent } from "../../+pages/public-pages/foroshgah/foroshga
     MatIconModule,
     MatInputModule,
     ForoshgahComponent,
-    KalaComponent
-]
+    SlideshowComponent
+  ]
 })
 export class PublicnavigationComponent {
-  basketbuy = inject(BasketbuyService);
-  openmenu: string = '';
-  storeon() {
-    this.openmenu = this.openmenu == '' ? 'فروشگاه های توی توی' : '';
-  }
-  shoppingcart() {
-  this.openmenu=this.openmenu==''?'shoppingcart':'';
-  }
-  boyon() {
-    this.openmenu = this.openmenu == '' ? 'boys' : '';
-  }
-  kalaon() {
-    this.openmenu = this.openmenu == '' ? 'kala' : '';
-  }
-  girlon() {
-    this.openmenu = this.openmenu == '' ? 'girls' : '';
-  }
-  videoon() {
-    this.openmenu = this.openmenu == '' ? 'video' : '';
-  }
-  brandon() {
-    this.openmenu = this.openmenu == '' ? 'brand' : '';
-  }
-  newon() {
-    this.openmenu = this.openmenu == '' ? 'new' : '';
-  }
-  basketon() {
-    this.openmenu = this.openmenu == '' ? 'basket' : '';
-
-  }
-  offon() {
-    this.openmenu = this.openmenu == '' ? 'off' : '';
-  }
-  loginon() {
-    this.openmenu = this.openmenu == '' ? 'login' : '';
+  // @Input() cartcount: number = 0;
+  // itemaddtocart() {
+  //   this.cartcount++
+  // }
+  activepage: 'home' | 'kala' | 'backet' | 'فروشگاه های توی توی' | 'boys' | 'girls' | 'video' | 'login' | 'off' | 'brand' | 'new' = 'home';
+  goto(page: 'home' | 'kala' | 'backet' | 'فروشگاه های توی توی' | 'boys' | 'girls' | 'video' | 'login' | 'off' | 'brand' | 'new') {
+    this.activepage = page;
   }
 }

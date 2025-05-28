@@ -13,6 +13,7 @@ import { OffComponent } from './+pages/public-pages/off/ui/off.component';
 import { DashboardComponent } from './+pages/private-pages/dashboard/ui/dashboard.component';
 import { BacketComponent } from './+pages/public-pages/backet/ui/backet.component';
 import { KalasComponent } from './+pages/public-pages/kalas/ui/kalas.component';
+import { SlideshowComponent } from './+pages/public-pages/slideshow/slideshow.component';
 
 export const routes: Routes = [
 
@@ -26,7 +27,8 @@ export const routes: Routes = [
             { path: 'new', component: NewComponent },
             { path: 'off', component: OffComponent },
             { path: 'backet', component: BacketComponent },
-            { path: '', redirectTo: 'kala', pathMatch: 'prefix' },
+            {path:'home',component:SlideshowComponent},
+            { path: '', redirectTo: 'home', pathMatch: 'prefix' },
 
         ]
     },

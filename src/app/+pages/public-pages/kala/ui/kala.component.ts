@@ -1,9 +1,9 @@
 import { Component, inject, Inject } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
-import { BasketbuyService } from '../../../../+services/backetbuy.service';
+import { BasketbuyService } from '../../../../+shared/+services/backetbuy.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BusyService } from '../../../../+services/busy.service';
-import {MatCardModule} from '@angular/material/card';
+import { BusyService } from '../../../../+shared/+services/busy.service';
+import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-kala',
   imports: [MatProgressSpinnerModule,
@@ -19,13 +19,21 @@ export class KalaComponent {
   @Output() onBuy = new EventEmitter<any>;
   @Output() onRemove = new EventEmitter<any>;
   @Input() action = 'buy';
-  buy(p: any) {
-    if (this.action == 'buy') {
-      this.onBuy.emit(this.product);
-    }
-    else {
-      this.onRemove.emit(p);
-    }
+  @Output() itemadd = new EventEmitter<any>();
+  cartcount: any;
+
+  addtocart() {
+    this.itemadd.emit();
+    this.cartcount++
   }
+
+buy(p: any) {
+  if (this.action == 'buy') {
+    this.onBuy.emit(this.product);
+  }
+  else {
+    this.onRemove.emit(p);
+  }
+}
 
 }
