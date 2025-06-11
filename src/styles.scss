@@ -52,23 +52,21 @@ body {
     @include mat.card-overrides((title-text-font:toytoy,
 
         ));
-    @include mat.button-overrides((text-label-text-font:toytoy,
-   
-        ));
+
     @include mat.button-overrides((filled-container-color: rgb(156, 156, 156),
             filled-label-text-color: rgb(255, 255, 255),
             // text-label-text-font:toytoy,
             filled-label-text-font:toytoy,
-            
+            text-label-text-font:toytoy,
+
         ));
-      
-  @include mat.table-overrides((
-    background-color: rgb(255, 255, 255),
-    header-headline-color: rgb(0, 0, 0),
-    header-headline-font:toytoy,
-    header-headline-size:30px,
-    // row-item-label-text-font:toytoy,
-    row-item-label-text-size:15x,
-    row-item-label-text-color:rgb(66, 66, 66),
-  ));
+
+    @include mat.table-overrides((background-color: rgb(255, 255, 255),
+            header-headline-color: rgb(0, 0, 0),
+            header-headline-font:toytoy,
+            header-headline-size:30px,
+            // row-item-label-text-font:toytoy,
+            row-item-label-text-size:15x,
+            row-item-label-text-color:rgb(66, 66, 66),
+        ));
 }

@@ -5,11 +5,16 @@ h2 {
     color: rgb(143, 143, 143);
     margin-top: 1em;
 
+    div {
+
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
 }
+
 .imgsize {
-    flex-wrap: wrap;
+    height: 25vh;
+    width: 13vw;
     margin-right: 2em;
     margin-top: 1.5em;
-    width: 13vw;
-    height: 25vh;
 }
