@@ -1,19 +1,26 @@
+@font-face {
+    font-family: toytoy;
+    src: url('/fonts/iranyekanwebregular.woff');
+}
+
 .uplogo {
     display: flex;
     border: 1px solid rgb(190, 186, 186);
     height: 5vh;
-    font-size: small;
+    font-family: toytoy;
+    font-size:small;
     justify-content: space-between;
     align-items: center;
     color: rgb(177, 177, 177);
 
     div {
-        margin-right: 5em;
+        margin-right: 3em;
     }
 
     a {
         margin-left: 3em;
         text-decoration: none;
+        font-family: toytoy;
         color: rgb(177, 177, 177);
     }
 }
@@ -26,16 +33,21 @@
     height: 15vh;
 
     .call {
-        font-size: 2em;
+        font-size: small;
         color: black;
+        font-family: toytoy;
+        margin-left: 2em;
     }
 
     .searchform {
+        
         height: 10vh;
     }
 
     .example-full-width {
-        width: 30vw;
+        font-size: medium;
+        width: 40vw;
+        margin-left: 8em;
 
     }
 
@@ -55,10 +67,11 @@
     background-color: rgb(255, 0, 64);
     color: white;
     align-items: center;
-
+    
     .stylemenu {
         text-decoration: none;
         list-style: none;
+        font-size:small;
         color: white;
         cursor: pointer;
     }
@@ -70,7 +83,6 @@
 
     .style {
         list-style: none;
-        font-size: large;
         font-weight: bold;
     }
 
@@ -78,6 +90,7 @@
         list-style: none;
         font-size: large;
         font-weight: bold;
+        font-size:small;
         margin-left: 2vw;
     }
 

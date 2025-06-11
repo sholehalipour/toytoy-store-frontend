@@ -1,16 +1,18 @@
-import { Component, inject, Inject } from '@angular/core';
+import { Component, inject, Inject, Pipe } from '@angular/core';
 import { EventEmitter, Input, Output } from '@angular/core';
 import { BasketbuyService } from '../../../../+shared/+services/backetbuy.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BusyService } from '../../../../+shared/+services/busy.service';
 import { MatCardModule } from '@angular/material/card';
+import { CurrencyPipe, DecimalPipe } from '@angular/common';
 @Component({
   selector: 'app-kala',
   imports: [MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    CurrencyPipe,
   ],
   templateUrl: './kala.component.html',
-  styleUrl: './kala.component.scss'
+  styleUrl: './kala.component.scss',
 })
 export class KalaComponent {
   busyalarm = inject(BusyService);
@@ -27,13 +29,13 @@ export class KalaComponent {
     this.cartcount++
   }
 
-buy(p: any) {
-  if (this.action == 'buy') {
-    this.onBuy.emit(this.product);
+  buy(p: any) {
+    if (this.action == 'buy') {
+      this.onBuy.emit(this.product);
+    }
+    else {
+      this.onRemove.emit(p);
+    }
   }
-  else {
-    this.onRemove.emit(p);
-  }
-}
 
 }

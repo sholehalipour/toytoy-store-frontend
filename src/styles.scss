@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
 @font-face {
     font-family: toytoy;
     src: url('/fonts/MaterialIcons-Regular.woff2')
 }
+
+// * {
+//     font-family: toytoy;
+// }
 
 body {
     margin: 0;
@@ -20,4 +25,50 @@ body {
 
 
     }
+}
+
+:root {
+    @include mat.toolbar-overrides((container-background-color: rgb(255, 0, 64),
+            container-text-color: rgb(255, 255, 255),
+            title-text-font:toytoy,
+
+        ));
+    @include mat.sidenav-overrides((container-background-color: rgb(255, 0, 64),
+            container-text-color: rgb(255, 255, 255),
+
+        ));
+    @include mat.list-overrides((list-item-label-text-color:rgb(255, 255, 255),
+            list-item-hover-state-layer-color:rgb(5, 5, 5),
+            list-item-label-text-font:toytoy,
+
+        ));
+    @include mat.form-field-overrides((disabled-input-text-placeholder-color: orange,
+            disabled-leading-icon-color: red,
+            container-text-font:toytoy,
+            filled-label-text-font:toytoy,
+
+
+        ));
+    @include mat.card-overrides((title-text-font:toytoy,
+
+        ));
+    @include mat.button-overrides((text-label-text-font:toytoy,
+   
+        ));
+    @include mat.button-overrides((filled-container-color: rgb(156, 156, 156),
+            filled-label-text-color: rgb(255, 255, 255),
+            // text-label-text-font:toytoy,
+            filled-label-text-font:toytoy,
+            
+        ));
+      
+  @include mat.table-overrides((
+    background-color: rgb(255, 255, 255),
+    header-headline-color: rgb(0, 0, 0),
+    header-headline-font:toytoy,
+    header-headline-size:30px,
+    // row-item-label-text-font:toytoy,
+    row-item-label-text-size:15x,
+    row-item-label-text-color:rgb(66, 66, 66),
+  ));
 }

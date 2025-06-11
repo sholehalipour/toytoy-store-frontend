@@ -1,0 +1,29 @@
+.mat-card-image {
+    position: absolute;
+    display: inline-block;
+
+    .image {
+        margin-top: 15vh;
+        width: 10vw;
+        height: 15vh;
+    }
+
+    span {
+        padding: 2em;
+    }
+}
+
+.link {
+    position: absolute;
+    display: inline-block;
+    margin-top: 31vh;
+
+    a {
+        text-decoration: none;
+
+    }
+
+    span {
+        padding: 2.25em;
+    }
+}

@@ -13,7 +13,8 @@ import { OffComponent } from './+pages/public-pages/off/ui/off.component';
 import { DashboardComponent } from './+pages/private-pages/dashboard/ui/dashboard.component';
 import { BacketComponent } from './+pages/public-pages/backet/ui/backet.component';
 import { KalasComponent } from './+pages/public-pages/kalas/ui/kalas.component';
-import { SlideshowComponent } from './+pages/public-pages/slideshow/slideshow.component';
+import { SlideshowComponent } from './+pages/public-pages/slideshow/ui/slideshow.component';
+import { MemberComponent } from './+pages/private-pages/member/ui/member.component';
 
 export const routes: Routes = [
 
@@ -27,7 +28,7 @@ export const routes: Routes = [
             { path: 'new', component: NewComponent },
             { path: 'off', component: OffComponent },
             { path: 'backet', component: BacketComponent },
-            {path:'home',component:SlideshowComponent},
+            { path: 'home', component: SlideshowComponent },
             { path: '', redirectTo: 'home', pathMatch: 'prefix' },
 
         ]
@@ -36,6 +37,7 @@ export const routes: Routes = [
         path: 'admin', component: PrivatenavigationComponent, children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'kala', component: adminkala.KalaComponent },
+            { path: 'member', component: MemberComponent },
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
         ]
     },

@@ -1,33 +1,35 @@
     .example-card {
         display: inline-block;
-    margin-top: 5em;
-    box-sizing: border-box;
-    padding: 1em;
-    margin: 2em;
-    text-align: center;
-    mat-card-content {
-        
-        margin: 1em;
-        color: rgb(99, 95, 95);
+        margin-top: 5em;
+        box-sizing: border-box;
+        padding: 1em;
+        margin: 2em;
         text-align: center;
-        font-size: xx-small;
+
+        mat-card-content {
+            margin: 1em;
+            color: rgb(99, 95, 95);
+            text-align: center;
+            font-size: xx-small;
+
+        }
+
+        mat-card-subtitle {
+            text-align: center;
+        }
+
+        button {
+            background-color: rgb(255, 0, 76);
+            border-style: none;
+            color: white;
+            width: 8vw;
+            margin: 1em;
+            height: 5vh;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: rgb(243, 12, 108);
+        }
 
     }
-    mat-card-subtitle{
-        text-align: center;
-    }
-    button {
-        background-color: rgb(255, 0, 76);
-        border-style: none;
-        color: white;
-        width: 8vw;
-        margin: 1em;
-        height: 5vh;
-        border-radius: 20px;
-    }
-
-    button:hover {
-        background-color: rgb(243, 12, 108);
-    }
-    
-}

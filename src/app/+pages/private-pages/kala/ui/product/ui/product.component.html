@@ -1,0 +1,20 @@
+<form class="example-form">
+    @if(action=='remove'){
+        <div>
+            آیا از حذف این کالا مطمئن هستید؟!
+        </div>
+
+    }
+      <mat-form-field class="example-full-width">
+    <mat-label>نام کالا</mat-label>
+    <input [disabled]="action=='remove'" name="title" [(ngModel)]="data.title" matInput>
+  </mat-form-field>
+       <mat-form-field class="example-full-width">
+    <mat-label>قیمت</mat-label>
+    <input [disabled]="action=='remove'" name="price" [(ngModel)]="data.price" matInput>
+  </mat-form-field>
+</form>
+<div>
+    <button  (click)="ok()">تایید</button>
+    <button  (click)="onCancel.emit()" mat-button>انصراف</button>
+    </div>

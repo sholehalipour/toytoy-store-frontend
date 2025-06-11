@@ -1,0 +1,15 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    color: rgb(143, 143, 143);
+    margin-top: 1em;
+
+}
+.imgsize {
+    flex-wrap: wrap;
+    margin-right: 2em;
+    margin-top: 1.5em;
+    width: 13vw;
+    height: 25vh;
+}

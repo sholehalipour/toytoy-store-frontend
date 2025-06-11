@@ -22,9 +22,10 @@ import { KalaComponent } from "../../+pages/public-pages/kala/ui/kala.component"
 import { MatBadgeModule } from '@angular/material/badge';
 import { BasketbuyService } from '../../+shared/+services/backetbuy.service';
 import { MatInputModule } from '@angular/material/input';
-import { ForoshgahComponent } from "../../+pages/public-pages/foroshgah/foroshgah.component";
-import { SlideshowComponent } from "../../+pages/public-pages/slideshow/slideshow.component";
-
+import { ForoshgahComponent } from "../../+pages/public-pages/foroshgah/ui/foroshgah.component";
+import { SlideshowComponent } from "../../+pages/public-pages/slideshow/ui/slideshow.component";
+import { BuywithyearComponent } from '../../+pages/public-pages/buywithyear/ui/buywithyear.component';
+import { AbouttoytoyComponent } from "../../+pages/public-pages/abouttoytoy/ui/abouttoytoy.component";
 @Component({
   selector: 'app-publicnavigation',
   templateUrl: './publicnavigation.component.html',
@@ -49,8 +50,10 @@ import { SlideshowComponent } from "../../+pages/public-pages/slideshow/slidesho
     MatIconModule,
     MatInputModule,
     ForoshgahComponent,
-    SlideshowComponent
-  ]
+    SlideshowComponent,
+    BuywithyearComponent,
+    AbouttoytoyComponent
+]
 })
 export class PublicnavigationComponent {
   // @Input() cartcount: number = 0;

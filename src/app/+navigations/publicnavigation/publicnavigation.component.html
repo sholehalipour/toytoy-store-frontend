@@ -24,7 +24,7 @@
             </mat-form-field>
         </form>
     </div>
-<span class="divider1"></span>
+    <span class="divider1"></span>
     <a routerLink="/admin">
         <mat-icon class="picicon" aria-hidden="false" fontIcon="person">
         </mat-icon>
@@ -42,11 +42,14 @@
     <a routerLink="home" (click)="goto('home')">
         <mat-icon class="picicon" aria-hidden="false" fontIcon="home">
         </mat-icon>
-        
+
     </a>
     @if(activepage=='home')
     {
-        <app-slideshow/>
+    <app-slideshow />
+    <app-buywithyear />
+    <app-foroshgah />
+    <app-abouttoytoy/>
     }
 </div>
 <div class="menu">

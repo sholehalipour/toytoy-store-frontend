@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { slide } from './models/slide';
+import * as slide from './models/slide';
 import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-slideshow',
@@ -12,7 +12,7 @@ export class SlideshowComponent {
   slideIndex: number = 1;
   intervalid: any;
 
-  Slides: slide[] = [
+  Slides: slide.slide[] = [
     { imageurl: 'slidshow3.jpg', title: 'یه دنیای جدید از مد وسورپرایز', price: 'fgbf' },
     { imageurl: 'slidshow4.jpg', title: 'تفنگ های NerfوX-shot', price: 'fgbf' },
     { imageurl: 'slidshow5.jpg', title: 'اوج هیجان در سری جدید پوکمون!', price: 'fgbf' },

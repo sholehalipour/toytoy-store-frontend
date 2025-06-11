@@ -1,25 +1,32 @@
+@font-face {
+    font-family: toytoy;
+    src: url('/fonts/MaterialIcons-Regular.woff2')
+}
+
+
 :host {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: rgb(240, 202, 224);
-
+    
 }
 
 mat-card {
     width: 30vw;
     padding: 1em;
-
-
+    
+    
     div {
         margin-bottom: 1em;
-  
+        
     }
-
+    
     button {
         width: 25vw;
         background-color: rgb(255, 0, 106);
+        font-family: toytoy;
     }
 
     .back {
