@@ -5,13 +5,29 @@
         </div>
 
     }
+          <mat-form-field class="example-full-width">
+    <mat-label>شماره محصول</mat-label>
+    <input [disabled]="action=='remove'" name="id" [(ngModel)]="data.id" matInput>
+  </mat-form-field>
       <mat-form-field class="example-full-width">
-    <mat-label>نام کالا</mat-label>
-    <input [disabled]="action=='remove'" name="title" [(ngModel)]="data.title" matInput>
+    <mat-label>نام محصول</mat-label>
+    <input [disabled]="action=='remove'" name="productname" [(ngModel)]="data.productname" matInput>
   </mat-form-field>
        <mat-form-field class="example-full-width">
-    <mat-label>قیمت</mat-label>
-    <input [disabled]="action=='remove'" name="price" [(ngModel)]="data.price" matInput>
+    <mat-label>توضیحات</mat-label>
+    <input [disabled]="action=='remove'" name="description" [(ngModel)]="data.description" matInput>
+  </mat-form-field>
+   <mat-form-field class="example-full-width">
+      <mat-label>دسته بندی</mat-label>
+    <input [disabled]="action=='remove'" name="category" [(ngModel)]="data.category" matInput>
+  </mat-form-field>
+     <mat-form-field class="example-full-width">
+      <mat-label>برند محصول</mat-label>
+    <input [disabled]="action=='remove'" name="brand" [(ngModel)]="data.brand" matInput>
+  </mat-form-field>
+       <mat-form-field class="example-full-width">
+      <mat-label>شماره شناسه محصول</mat-label>
+    <input [disabled]="action=='remove'" name="sku" [(ngModel)]="data.sku" matInput>
   </mat-form-field>
 </form>
 <div>

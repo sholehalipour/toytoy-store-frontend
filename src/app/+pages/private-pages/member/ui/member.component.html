@@ -1,0 +1,50 @@
+@if (action=='list') {
+
+  <div class="toolbar">
+    <button (click)="create()" mat-flat-button>افزودن</button>
+  </div>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> شماره کاربر </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+    <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> نام </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+        <ng-container matColumnDef="family">
+    <th mat-header-cell *matHeaderCellDef> نام خانوادگی</th>
+    <td mat-cell *matCellDef="let element"> {{element.family}} </td>
+  </ng-container>
+    <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> نام کاربری </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+      <ng-container matColumnDef="password">
+    <th mat-header-cell *matHeaderCellDef> کلمه عبور</th>
+    <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+  </ng-container>
+
+    <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell *matCellDef="let element"> 
+           <button (click)="edit(element)"  mat-mini-fab >
+             <mat-icon >edit</mat-icon>
+        </button>&nbsp;
+           <button  (click)="remove(element)" mat-mini-fab >
+          <mat-icon >delete</mat-icon>
+        </button>
+      </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+}
+@else {
+
+  <app-members [action]="action" [current]="selected" (onOk)="ok($event)" (onCancel)="cancel()"/>
+}
+ 

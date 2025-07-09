@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { kala } from '../model/kala.model';
@@ -7,25 +7,31 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProductComponent } from "./product/ui/product.component";
 @Component({
   selector: 'app-kala',
-  imports: [MatButtonModule,
+  imports: [
+    MatButtonModule,
     MatTableModule,
-    MatIconModule, ProductComponent],
+    MatIconModule,
+    ProductComponent],
   templateUrl: './kala.component.html',
   styleUrl: './kala.component.scss'
 })
-export class KalaComponent {
+export class KalaComponent implements OnInit {
+  ngOnInit(): void {
+    this.refresh();
+  }
+
   action = "list";
   selected: kala | undefined;
   selectedid: number = 0;
-  ok(kala: kala) {
+  async ok(kala: kala) {
     if (this.action == 'create') {
-      this.Kalaservice.add(kala);
+      await this.Kalaservice.add(kala);
     }
     else if (this.action == 'edit') {
       this.Kalaservice.edit(this.selectedid, kala);
     }
     else if (this.action == 'remove') {
-      this.Kalaservice.remove(this.selectedid,kala);
+      await this.Kalaservice.remove(this.selectedid, kala);
     }
     this.refresh();
     this.action = 'list';
@@ -33,8 +39,8 @@ export class KalaComponent {
   cancel() {
     this.action = 'list';
   }
-  refresh() {
-    this.dataSource = this.Kalaservice.list();
+  async refresh() {
+    this.dataSource = await this.Kalaservice.list();
   }
   create() {
     this.selected = undefined;
@@ -52,8 +58,8 @@ export class KalaComponent {
 
   }
   Kalaservice = inject(KalaService);
-  displayedColumns: string[] = ['title', 'price', 'actions'];
-  dataSource = this.Kalaservice.list();
+  displayedColumns: string[] = ['id', 'productname', 'description', 'category', 'brand', 'sku', 'actions'];
+  dataSource: any;
 
 }
 
