@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Member } from '../model/member.model';
 import { HttpClient } from '@angular/common/http';
-import { membersComponent } from '../ui/members/ui/members.component';
+// import { membersComponent } from '../ui/members/ui/members.component';
 @Injectable({
   providedIn: 'root'
 })
