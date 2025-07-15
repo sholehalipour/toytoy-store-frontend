@@ -25,7 +25,7 @@ export class ProductComponent implements OnChanges {
   @Output() onOk = new EventEmitter<kala>();
   @Input() current: kala | undefined;
   @Input()action:string='';
-  data: kala = { id:0 ,productname:'',description:'',category:'',brand:'',sku:'',price:0 };
+  data: kala = { id:'' ,productname:'',description:'',category:'',brand:'',sku:'',price:0 };
 
   ok() {
     this.onOk.emit(this.data);

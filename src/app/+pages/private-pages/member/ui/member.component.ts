@@ -17,19 +17,19 @@ import { Member } from '../model/member.model';
   styleUrl: './member.component.scss'
 })
 export class MemberComponent implements OnInit {
-  memberservice: any;
+
   ngOnInit(): void {
     this.refresh();
   }
   action = "list";
   selected: Member | undefined;
-  selectedid: number = 0;
+  selectedid: string = '';
   async ok(member: Member) {
     if (this.action == 'create') {
       await this.memberservice.add(member);
     }
     else if (this.action == 'edit') {
-      this.memberservice.edit(this.selectedid, member);
+      await this.memberservice.edit(this.selectedid, member);
     }
     else if (this.action == 'remove') {
       await this.memberservice.remove(this.selectedid, member);
@@ -58,8 +58,8 @@ export class MemberComponent implements OnInit {
     this.action = 'remove';
 
   }
-  Memberservice = inject(MemberService);
-  displayedColumns: string[] = ['id', 'name', 'family', 'username', 'password'];
+  memberservice = inject(MemberService);
+  displayedColumns: string[] = ['name', 'family', 'username', 'actions'];
   dataSource: any;
 
 }

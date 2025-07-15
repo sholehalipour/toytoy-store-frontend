@@ -25,7 +25,7 @@ export class membersComponent implements OnChanges {
   @Output() onOk = new EventEmitter<Member>();
   @Input() current: Member | undefined;
   @Input() action: string = '';
-  data: Member = { id: 0, name: '', family: '', username: '', password: '' };
+  data: Member = { id: '', name: '', family: '', username: '', password: '' };
 
   ok() {
     this.onOk.emit(this.data);

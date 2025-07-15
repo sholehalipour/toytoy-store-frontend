@@ -1,11 +1,11 @@
 export interface kala {
-    // pic: ImageData;
-    id:number;
+
+    id: string;
     productname: string;
-    description:string;
-    category:string;
-    brand:string;
-    sku:string
+    description: string;
+    category: string;
+    brand: string;
+    sku: string
     price: number;
 
 }

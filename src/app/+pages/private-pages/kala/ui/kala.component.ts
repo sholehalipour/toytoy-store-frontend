@@ -22,13 +22,13 @@ export class KalaComponent implements OnInit {
 
   action = "list";
   selected: kala | undefined;
-  selectedid: number = 0;
+  selectedid: string = '';
   async ok(kala: kala) {
     if (this.action == 'create') {
       await this.Kalaservice.add(kala);
     }
     else if (this.action == 'edit') {
-      this.Kalaservice.edit(this.selectedid, kala);
+      await this.Kalaservice.edit(this.selectedid, kala);
     }
     else if (this.action == 'remove') {
       await this.Kalaservice.remove(this.selectedid, kala);
@@ -58,7 +58,7 @@ export class KalaComponent implements OnInit {
 
   }
   Kalaservice = inject(KalaService);
-  displayedColumns: string[] = ['id', 'productname', 'description', 'category', 'brand', 'sku', 'actions'];
+  displayedColumns: string[] = ['productname', 'description', 'category', 'brand', 'sku','price', 'actions'];
   dataSource: any;
 
 }
