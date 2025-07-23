@@ -3,6 +3,7 @@ import { KalaComponent } from "../../kala/ui/kala.component";
 import { BasketbuyService } from '../../../../+shared/+services/backetbuy.service';
 import { BusyService } from '../../../../+shared/+services/busy.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BadgeService } from '../../../../+shared/+services/badge.service';
 @Component({
   selector: 'app-kalas',
   imports: [KalaComponent,
@@ -15,6 +16,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class KalasComponent {
   busyalarm = inject(BusyService);
   basketservice = inject(BasketbuyService);
+
   remove($event: any) {
     this.basketservice.basket = this.basketservice.basket.filter((m: any) => m != $event);
   }

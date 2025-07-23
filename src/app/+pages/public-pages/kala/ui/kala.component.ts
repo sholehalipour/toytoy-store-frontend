@@ -5,6 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BusyService } from '../../../../+shared/+services/busy.service';
 import { MatCardModule } from '@angular/material/card';
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
+import { BadgeService } from '../../../../+shared/+services/badge.service';
 @Component({
   selector: 'app-kala',
   imports: [MatProgressSpinnerModule,
@@ -22,11 +23,11 @@ export class KalaComponent {
   @Output() onRemove = new EventEmitter<any>;
   @Input() action = 'buy';
   @Output() itemadd = new EventEmitter<any>();
-  cartcount: any;
+  badgservice = inject(BadgeService)
+  addToCart(item: any) {
 
-  addtocart() {
-    this.itemadd.emit();
-    this.cartcount++
+    this.badgservice.increment();
+    this.badgservice.getcartcount();
   }
 
   buy(p: any) {

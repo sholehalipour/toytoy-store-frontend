@@ -26,6 +26,7 @@ import { ForoshgahComponent } from "../../+pages/public-pages/foroshgah/ui/foros
 import { SlideshowComponent } from "../../+pages/public-pages/slideshow/ui/slideshow.component";
 import { BuywithyearComponent } from '../../+pages/public-pages/buywithyear/ui/buywithyear.component';
 import { AbouttoytoyComponent } from "../../+pages/public-pages/abouttoytoy/ui/abouttoytoy.component";
+import { BadgeService } from '../../+shared/+services/badge.service';
 @Component({
   selector: 'app-publicnavigation',
   templateUrl: './publicnavigation.component.html',
@@ -56,12 +57,18 @@ import { AbouttoytoyComponent } from "../../+pages/public-pages/abouttoytoy/ui/a
 ]
 })
 export class PublicnavigationComponent {
-  // @Input() cartcount: number = 0;
-  // itemaddtocart() {
-  //   this.cartcount++
-  // }
+  // badgservice=inject(BadgeService)
+  cartcount = 0;
+  constructor(private badge:BadgeService) {
+    this.cartcount = this.badge.getcartcount();
+  }
+
+  refreshcount() {
+    this.cartcount = this.badge.getcartcount();
+  }
   activepage: 'home' | 'kala' | 'backet' | 'فروشگاه های توی توی' | 'boys' | 'girls' | 'video' | 'login' | 'off' | 'brand' | 'new' = 'home';
   goto(page: 'home' | 'kala' | 'backet' | 'فروشگاه های توی توی' | 'boys' | 'girls' | 'video' | 'login' | 'off' | 'brand' | 'new') {
     this.activepage = page;
+    
   }
 }

@@ -30,26 +30,20 @@
         </mat-icon>
     </a>
     <a routerLink="backet" (click)="goto('backet')">
-        <mat-icon class="picicon" matBadge="0">shopping_cart
+        <mat-icon class="picicon" matBadge={{cartcount}} matBadgeColor="warn" matBadgeOverlap="false"
+            (click)="refreshcount()">shopping_cart
         </mat-icon>
-        <!-- @if (cartcount>0) 
-        {  {{cartcount}}  } -->
     </a>
-    <!-- @if(activepage=='backet')
-    {
-        <app-backet />
-    } -->
     <a routerLink="home" (click)="goto('home')">
         <mat-icon class="picicon" aria-hidden="false" fontIcon="home">
         </mat-icon>
-
     </a>
     @if(activepage=='home')
     {
     <app-slideshow />
     <app-buywithyear />
     <app-foroshgah />
-    <app-abouttoytoy/>
+    <app-abouttoytoy />
     }
 </div>
 <div class="menu">

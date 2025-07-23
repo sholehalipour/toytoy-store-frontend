@@ -8,19 +8,19 @@ import { HttpClient } from '@angular/common/http';
 export class KalaService {
   http = inject(HttpClient);
   async list() {
-    return await this.http.get("http://localhost:5196/products/list").toPromise();
+    return await this.http.get("http://localhost:5196/products/List").toPromise();
   }
   async add(kala: kala) {
 
-    return await this.http.post("http://localhost:5196/products/create", kala).toPromise();
+    return await this.http.post("http://localhost:5196/products/Create", kala).toPromise();
   }
   async edit(id: string, kala: kala) {
 
-    return await this.http.put("http://localhost:5196/products/update/" + id, kala).toPromise();
+    return await this.http.put("http://localhost:5196/products/Update/" + id, kala).toPromise();
   }
   async remove(id: string, kala: kala) {
 
     // this.data=this.data.filter(m=>m.id!=id);
-    return await this.http.delete("http://localhost:5196/products/delete/" + id).toPromise();
+    return await this.http.delete("http://localhost:5196/products/Delete/" + id).toPromise();
   }
 }

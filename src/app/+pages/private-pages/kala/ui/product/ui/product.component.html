@@ -5,10 +5,6 @@
     </div>
 
     }
-    <mat-form-field class="example-full-width">
-      <!-- <mat-label>شماره محصول</mat-label>
-    <input [disabled]="action=='remove'" name="id" [(ngModel)]="data.id" matInput>
-  </mat-form-field> -->
       <mat-form-field class="example-full-width">
         <mat-label>نام محصول</mat-label>
         <input [disabled]="action=='remove'" name="productname" [(ngModel)]="data.productname" matInput>
@@ -37,4 +33,3 @@
     <button  (click)="ok()" mat-button>تایید</button>
     <button  (click)="onCancel.emit()" mat-button>انصراف</button>
   </div>
-<!-- </form> -->
