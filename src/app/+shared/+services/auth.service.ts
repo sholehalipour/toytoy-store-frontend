@@ -1,29 +1,23 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { delay, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BackendService } from './backend.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-mockusers:user[]=[
-  {username:'admin',password:'admin',fullname:'مدیریت',enabled:true},
-  {username:'guest',password:'guest',fullname:'مهمان',enabled:false},
-  {username:'user',password:'user',fullname:'کاربر',enabled:true},
-
-
-];
-check(username:string,password:string,){
-  let result=this.mockusers.filter(u=>u.username==username&&u.password==password&&u.enabled==true);
-  if(result.length==0){
-    return false;
+  backend = inject(BackendService);
+  check(username: string, password: string,) {
+    return this
+      .backend
+      .post('/auth/login', { username: username, password: password })
   }
-  return true;
-
 }
-}
-interface user{
-  username:string;
-  password:string;
-  fullname:string;
-  enabled:boolean;
+interface user {
+  username: string;
+  password: string;
+  fullname: string;
+  enabled: boolean;
 
 }

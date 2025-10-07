@@ -18,18 +18,23 @@
                     <mat-hint>کلمه عبور الزامی است</mat-hint>
                 </mat-form-field>
             </div>
-            <mat-checkbox name="keepme" [(ngModel)]="login.keepme">مرا به خاطر بسپار</mat-checkbox>
             <div>
-                <button [disabled]="! isvalid()||busy" mat-flat-button>
-                    @if ( busy && massage=='admin' || massage=='user'|| massage=='guest') {
-                        
-                        <mat-spinner diameter="30"  ></mat-spinner>
+
+                <mat-checkbox name="keepme" [(ngModel)]="login.keepme">مرا به خاطر بسپار</mat-checkbox>
+            </div>
+            @if (message!=''){
+            <div>
+                {{message}}
+            </div>
+            }
+            <div>
+                <button [disabled]="!isvalid()||busy" mat-flat-button>
+                    @if ( busy && message=='admin' || message=='user'|| message=='guest') {
+
+                    <mat-spinner diameter="30"></mat-spinner>
                     }
                     @else {
-                        
-                        {{massage}}
-                        ورود
-                        
+                    ورود
                     }
                 </button>
             </div>

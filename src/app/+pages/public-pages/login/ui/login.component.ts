@@ -14,6 +14,7 @@ import { Router, RouterLink } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BusyService } from '../../../../+shared/+services/busy.service';
 import { AuthService } from '../../../../+shared/+services/auth.service';
+import { LoginResult } from './models/login-result';
 
 @Component({
   selector: 'app-login',
@@ -34,25 +35,28 @@ import { AuthService } from '../../../../+shared/+services/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  // busy = inject(BusyService);
-  auth=inject(AuthService);
-  router=inject(Router);
+  auth = inject(AuthService);
+  router = inject(Router);
   busy = false;
-  massage:string='';
+  message: string = '';
   check() {
     this.busy = true;
-   if(this.auth.check(this.login.username,this.login.password)) {
-this.router.navigateByUrl('/admin');
-  }
-  else{
-    this.massage=' نام کاربری یا کلمه عبور اشتباه است';
-  }
-  this.busy=false;
-    setTimeout(() => {
-      console.log(this.login);
+    this.auth.check(this.login.username, this.login.password).subscribe(r => {
+      const result = r as LoginResult;
+      if (!result.successfull) {
+        this.message = result.message;
+      }
+      else {
+        sessionStorage.setItem('token',result.token);
+        if (this.login.keepme){
+          localStorage.setItem('token',result.token)
+        }
+        this.router.navigate(['admin']);
+      }
       this.busy = false;
-    }, 3000);
+    });
   }
+
   login: Login = { username: '', password: '', keepme: false };
   isvalid() {
     if (this.login.username.trim() == '' || this.login.password == '') {
@@ -68,6 +72,6 @@ this.router.navigateByUrl('/admin');
       map((result: { matches: any; }) => result.matches),
       shareReplay()
     );
-}
 
+}
 
