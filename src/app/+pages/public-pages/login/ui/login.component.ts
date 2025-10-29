@@ -47,16 +47,15 @@ export class LoginComponent {
         this.message = result.message;
       }
       else {
-        sessionStorage.setItem('token',result.token);
-        if (this.login.keepme){
-          localStorage.setItem('token',result.token)
+        sessionStorage.setItem('token', result.token);
+        if (this.login.keepme) {
+          localStorage.setItem('token', result.token);
         }
-        this.router.navigate(['admin']);
+        this.router.navigate(['/admin']);
       }
       this.busy = false;
     });
   }
-
   login: Login = { username: '', password: '', keepme: false };
   isvalid() {
     if (this.login.username.trim() == '' || this.login.password == '') {
@@ -66,12 +65,10 @@ export class LoginComponent {
     return true;
   }
   private breakpointObserver = inject(BreakpointObserver);
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map((result: { matches: any; }) => result.matches),
       shareReplay()
     );
-
 }
 

@@ -5,18 +5,21 @@ import { MemberService } from '../service/member.service';
 import { MatIconModule } from '@angular/material/icon';
 import { membersComponent } from './members/ui/members.component';
 import { Member } from '../model/member.model';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @Component({
   selector: 'app-member',
   imports: [
     MatButtonModule,
     MatTableModule,
     MatIconModule,
-    membersComponent
+    membersComponent,
+    MatProgressBarModule
   ],
   templateUrl: './member.component.html',
   styleUrl: './member.component.scss'
 })
 export class MemberComponent implements OnInit {
+  memberservice = inject(MemberService);
 
   ngOnInit(): void {
     this.refresh();
@@ -24,24 +27,43 @@ export class MemberComponent implements OnInit {
   action = "list";
   selected: Member | undefined;
   selectedid: string = '';
-  async ok(member: Member) {
+  busy = false;
+  ok(member: Member) {
+    this.busy = true;
     if (this.action == 'create') {
-      await this.memberservice.add(member);
+      this.memberservice.add(member).subscribe(result => {
+        this.refresh();
+        this.action = 'list';
+        this.busy = false;
+      });
     }
     else if (this.action == 'edit') {
-      await this.memberservice.edit(this.selectedid, member);
+      this.memberservice.edit(this.selectedid, member).subscribe(result => {
+        this.refresh();
+        this.action = 'list';
+        this.busy = false;
+
+      });
     }
     else if (this.action == 'remove') {
-      await this.memberservice.remove(this.selectedid, member);
+      this.memberservice.remove(this.selectedid).subscribe(result => {
+        this.refresh();
+        this.action = 'list';
+        this.busy = false;
+
+      });
     }
-    this.refresh();
-    this.action = 'list';
   }
   cancel() {
     this.action = 'list';
   }
-  async refresh() {
-    this.dataSource = await this.memberservice.list();
+  refresh() {
+    this.busy = true;
+    this.memberservice.list().subscribe(result => {
+      this.dataSource = result;
+      this.busy = false;
+
+    });
   }
   create() {
     this.selected = undefined;
@@ -56,11 +78,7 @@ export class MemberComponent implements OnInit {
     this.selected = { ...member };
     this.selectedid = member.id;
     this.action = 'remove';
-
   }
-  memberservice = inject(MemberService);
   displayedColumns: string[] = ['name', 'family', 'username', 'actions'];
   dataSource: any;
-
 }
-

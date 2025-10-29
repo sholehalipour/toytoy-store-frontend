@@ -7,14 +7,19 @@ import { delay } from 'rxjs';
   providedIn: 'root'
 })
 export class BackendService {
-  http = inject(HttpClient)
+  http = inject(HttpClient);
   post(api: string, data: any) {
     return this.http.post(environment.server + api, data).pipe(delay(environment.fakeDelay));
   }
   get(api: String) {
     return this.http.get(environment.server + api).pipe(delay(environment.fakeDelay));
-  };
-
+  }
+  put(api: string, data: any) {
+    return this.http.put(environment.server + api, data).pipe(delay(environment.fakeDelay));
+  }
+  delete(api: string) {
+    return this.http.delete(environment.server + api).pipe(delay(environment.fakeDelay));
+  }
 }
 
 

@@ -11,7 +11,7 @@ export class AuthService {
   check(username: string, password: string,) {
     return this
       .backend
-      .post('/auth/login', { username: username, password: password })
+      .post('/auth/login', { username: username, password: password });
   }
 }
 interface user {

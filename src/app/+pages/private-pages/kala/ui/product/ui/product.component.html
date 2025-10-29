@@ -1,35 +1,34 @@
 <form class="example-form">
   @if(action=='remove'){
-    <div>
-      آیا از حذف این کالا مطمئن هستید؟!
-    </div>
-
-    }
-      <mat-form-field class="example-full-width">
-        <mat-label>نام محصول</mat-label>
-        <input [disabled]="action=='remove'" name="productname" [(ngModel)]="data.productname" matInput>
-      </mat-form-field>
-       <mat-form-field class="example-full-width">
-         <mat-label>توضیحات</mat-label>
-         <input [disabled]="action=='remove'" name="description" [(ngModel)]="data.description" matInput>
-        </mat-form-field>
-   <mat-form-field class="example-full-width">
-     <mat-label>دسته بندی</mat-label>
+  <div>
+    آیا از حذف این کالا مطمئن هستید؟!
+  </div>
+  }
+  <mat-form-field class="example-full-width">
+    <mat-label>نام محصول</mat-label>
+    <input [disabled]="action=='remove'" name="productname" [(ngModel)]="data.productname" matInput>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>توضیحات</mat-label>
+    <input [disabled]="action=='remove'" name="description" [(ngModel)]="data.description" matInput>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>دسته بندی</mat-label>
     <input [disabled]="action=='remove'" name="category" [(ngModel)]="data.category" matInput>
   </mat-form-field>
-     <mat-form-field class="example-full-width">
-      <mat-label>برند محصول</mat-label>
+  <mat-form-field class="example-full-width">
+    <mat-label>برند محصول</mat-label>
     <input [disabled]="action=='remove'" name="brand" [(ngModel)]="data.brand" matInput>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-      <mat-label>شماره شناسه محصول</mat-label>
+    <mat-label>شماره شناسه محصول</mat-label>
     <input [disabled]="action=='remove'" name="sku" [(ngModel)]="data.sku" matInput>
   </mat-form-field>
-       <mat-form-field class="example-full-width">
-      <mat-label>قیمت محصول</mat-label>
+  <mat-form-field class="example-full-width">
+    <mat-label>قیمت محصول</mat-label>
     <input [disabled]="action=='remove'" name="price" [(ngModel)]="data.price" matInput>
   </mat-form-field>
   <div>
-    <button  (click)="ok()" mat-button>تایید</button>
-    <button  (click)="onCancel.emit()" mat-button>انصراف</button>
+    <button (click)="ok()" mat-button>تایید</button>
+    <button (click)="onCancel.emit()" mat-button>انصراف</button>
   </div>

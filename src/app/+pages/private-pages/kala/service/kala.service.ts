@@ -1,26 +1,22 @@
 import { inject, Injectable } from '@angular/core';
 import { kala } from '../model/kala.model';
 import { HttpClient } from '@angular/common/http';
-
+import { BackendService } from '../../../../+shared/+services/backend.service';
 @Injectable({
   providedIn: 'root'
 })
 export class KalaService {
-  http = inject(HttpClient);
-  async list() {
-    return await this.http.get("http://localhost:5196/products/List").toPromise();
+  backend = inject(BackendService);
+  list() {
+    return this.backend.get('/products/list');
   }
-  async add(kala: kala) {
-
-    return await this.http.post("http://localhost:5196/products/Create", kala).toPromise();
+  add(kala: kala) {
+    return this.backend.post('/products/create', kala);
   }
-  async edit(id: string, kala: kala) {
-
-    return await this.http.put("http://localhost:5196/products/Update/" + id, kala).toPromise();
+  edit(id: string, kala: kala) {
+    return this.backend.put('/products/update' + id, kala);
   }
-  async remove(id: string, kala: kala) {
-
-    // this.data=this.data.filter(m=>m.id!=id);
-    return await this.http.delete("http://localhost:5196/products/Delete/" + id).toPromise();
+  remove(id: string) {
+    return this.backend.delete('/products/delete' + id);
   }
 }

@@ -5,42 +5,61 @@ import { kala } from '../model/kala.model';
 import { KalaService } from '../service/kala.service';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductComponent } from "./product/ui/product.component";
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @Component({
   selector: 'app-kala',
   imports: [
     MatButtonModule,
     MatTableModule,
     MatIconModule,
-    ProductComponent],
+    ProductComponent,
+    MatProgressBarModule],
   templateUrl: './kala.component.html',
   styleUrl: './kala.component.scss'
 })
 export class KalaComponent implements OnInit {
+  Kalaservice = inject(KalaService);
   ngOnInit(): void {
     this.refresh();
   }
-
   action = "list";
   selected: kala | undefined;
   selectedid: string = '';
-  async ok(kala: kala) {
+  busy = false;
+  ok(kala: kala) {
+    this.busy = true;
     if (this.action == 'create') {
-      await this.Kalaservice.add(kala);
+      this.Kalaservice.add(kala).subscribe(result => {
+        this.refresh();
+        this.action = 'list';
+        this.busy = false;
+      });
     }
     else if (this.action == 'edit') {
-      await this.Kalaservice.edit(this.selectedid, kala);
+      this.Kalaservice.edit(this.selectedid, kala).subscribe(result => {
+        this.refresh();
+        this.action = 'list';
+        this.busy = false;
+
+      });
     }
     else if (this.action == 'remove') {
-      await this.Kalaservice.remove(this.selectedid, kala);
+      this.Kalaservice.remove(this.selectedid).subscribe(result => {
+        this.refresh();
+        this.action = 'list';
+        this.busy = false;
+      });
     }
-    this.refresh();
-    this.action = 'list';
   }
   cancel() {
     this.action = 'list';
   }
-  async refresh() {
-    this.dataSource = await this.Kalaservice.list();
+  refresh() {
+    this.busy = true;
+    this.Kalaservice.list().subscribe(result => {
+      this.dataSource = result;
+      this.busy = false;
+    });
   }
   create() {
     this.selected = undefined;
@@ -55,10 +74,8 @@ export class KalaComponent implements OnInit {
     this.selected = { ...kala };
     this.selectedid = kala.id;
     this.action = 'remove';
-
   }
-  Kalaservice = inject(KalaService);
-  displayedColumns: string[] = ['productname', 'description', 'category', 'brand', 'sku','price', 'actions'];
+  displayedColumns: string[] = ['productname', 'description', 'category', 'brand', 'sku', 'price', 'actions'];
   dataSource: any;
 
 }

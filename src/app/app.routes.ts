@@ -15,6 +15,7 @@ import { BacketComponent } from './+pages/public-pages/backet/ui/backet.componen
 import { KalasComponent } from './+pages/public-pages/kalas/ui/kalas.component';
 import { SlideshowComponent } from './+pages/public-pages/slideshow/ui/slideshow.component';
 import { MemberComponent } from './+pages/private-pages/member/ui/member.component';
+import { privateGuard } from './+pages/private-pages/guards/private.guard';
 
 export const routes: Routes = [
 
@@ -34,7 +35,7 @@ export const routes: Routes = [
         ]
     },
     {
-        path: 'admin', component: PrivatenavigationComponent, children: [
+        path: 'admin', canActivate: [privateGuard], component: PrivatenavigationComponent, children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'kala', component: adminkala.KalaComponent },
             { path: 'member', component: MemberComponent },

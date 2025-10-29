@@ -27,7 +27,6 @@ export class ProductComponent implements OnChanges {
     }
   }
   data: kala = { id: '', productname: '', description: '', category: '', brand: '', sku: '', price: 0 };
-
   ok() {
     this.onOk.emit(this.data);
   }
